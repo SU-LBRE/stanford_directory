@@ -1,17 +1,11 @@
-#[Stanford Module](https://github.com/SU-SWS/stanford_module)
+#[Stanford Directory](https://github.com/SU-LBRE/stanford_directory)
 ##### Version: 7.x-1.x
 
 Maintainers: [jbickar](https://github.com/jbickar), [sherakama](https://github.com/sherakama)
 [Changelog.txt](CHANGELOG.txt)
 
-The Stanford Module feature is used to ...
-
-
-Sub Modules
----
-
-**[Stanford Module Sub Module](https://github.com/SU-SWS/stanford_module)**
-This module provides the Stanford Person entity reference field. By default an instance of this field is created on Stanford Publications but it may be added to other content types.
+The Stanford Directory feature is used to add fields to any content type so that
+a directory view of all content can be used.
 
 Installation
 ---
