@@ -32,7 +32,6 @@ function stanford_directory_configuration_form($form, &$form_state) {
   $form['#validate'][] = "stanford_directory_configuration_form_validate";
   $form["#submit"][] = "stanford_directory_configuration_form_submit";
 
-
   return system_settings_form($form);
 }
 
@@ -55,11 +54,21 @@ function stanford_directory_configuration_form_submit($form, &$form_state) {
 
   $values = $form_state["values"];
   $types = $values['stanford_directory_content_types'];
-  foreach ($types as $node_type) {
-    if (empty($node_type)) {
-      continue;
-    }
+  // The form save for system form comes after this submit function so we can
+  // still look up the old values.
+  $previous_types = variable_get("stanford_directory_content_types", array());
+  $filtered_previous = array_filter($previous_types);
+  $filtered_types = array_filter($types);
+
+  // Turn on the new ones.
+  foreach ($filtered_types as $node_type) {
     stanford_directory_add_service_directory($node_type);
+  }
+
+  // Disable any disabled ones.
+  $disabled = array_diff($filtered_previous, $filtered_types);
+  foreach ($disabled as $bundle_type) {
+    stanford_directory_remove_service_directory($bundle_type);
   }
 
 }

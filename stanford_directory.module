@@ -73,6 +73,39 @@ function stanford_directory_add_service_directory($node_type) {
   if (!field_group_exists($field_group->group_name, 'node', $node_type, 'form')) {
     field_group_group_save($field_group);
   }
+
+  drupal_set_message("Enabled service directory fields for: " . $node_type);
+
+}
+
+
+/**
+ * Removes the field group and field instances from a content type.
+ *
+ * WARNING: This is a destructive function and will delete data from
+ * the database. This should have been validated before execution.
+ *
+ * @param string $node_type
+ *   The bundle type name.
+ */
+function stanford_directory_remove_service_directory($node_type) {
+
+  if (empty($node_type)) {
+    throw new Exception("Node type must be provided.");
+  }
+
+  // Delete all of the instances.
+  $instances = service_directory_get_field_instance_information($node_type);
+  foreach ($instances as $instance_name => $instance) {
+    field_delete_instance($instance, FALSE);
+  }
+
+  // Delete the field group.
+  $field_group = stanford_directory_get_field_group_field_information($node_type);
+  field_group_group_export_delete($field_group);
+
+  drupal_set_message("Removed all service directory fields from: " . $node_type);
+
 }
 
 
