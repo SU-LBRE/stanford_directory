@@ -53,20 +53,15 @@ function stanford_directory_configuration_form_validate($form, &$form_state) {
  */
 function stanford_directory_configuration_form_submit($form, &$form_state) {
 
-  $node_type = "stanford_gallery";
-  $instances = stanford_directory_get_field_group_field_information($node_type);
-
-
-  // Get the field group definition from our helper function.
-  $field_group = stanford_directory_get_field_group_field_information($node_type);
-  // Need to repackage the ctools export a bit.
-  foreach ($field_group->data as $data_key => $data_item) {
-    $field_group->{$data_key} = $data_item;
-  }
-
-  // Only save if doesn't exist.
-  if (!field_group_exists($field_group->group_name, 'node', $node_type, 'form')) {
-    field_group_group_save($field_group);
+  $values = $form_state["values"];
+  $types = $values['stanford_directory_content_types'];
+  foreach ($types as $node_type) {
+    if (empty($node_type)) {
+      continue;
+    }
+    stanford_directory_add_service_directory($node_type);
   }
 
 }
+
+
