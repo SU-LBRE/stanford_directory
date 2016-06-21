@@ -6,3 +6,40 @@
  * Long description
  */
 
+/**
+ * Implements hook_help().
+ */
+function stanford_directory_help($path, $arg) {
+  switch ($path) {
+    // Main module help for the stanford_directory module
+    case 'stanford_directory':
+      return '<p>' . t('Please see the !config', array('!config' => l("cofiguration page", "admin/config/stanford/directory"))) . '</p>';
+  }
+}
+
+/**
+ * Implements hook_menu().
+ */
+function stanford_directory_menu() {
+  $items['admin/config/stanford/directory'] = array(
+    'title' => 'Stanford Directory',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('stanford_directory_configuration_form'),
+    'access arguments' => array('administer stanford directory'),
+    'file' => "stanford_directory.admin.inc",
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_permission().
+ */
+function stanford_directory_permission() {
+  return array(
+    'administer stanford directory' =>  array(
+      'title' => t('Administer Stanford Directory'),
+      'description' => t('Administer configuration settings for the Stanford Directory module.'),
+    ),
+  );
+}
+
