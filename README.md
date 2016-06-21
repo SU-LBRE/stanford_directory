@@ -15,7 +15,12 @@ Install this module like any other module. [See Drupal Documentation](https://dr
 Configuration
 ---
 
-Nothing special needed.
+Go to /admin/config/stanford/directory and check off the content type you wish
+to have enabled to use the directory fields. They will show up in a vertical
+tab on the content type. Disabling a field will remove the fields from the
+content type.
+
+Please fill out the two vocuabularies included in this module some terms.
 
 Troubleshooting
 ---

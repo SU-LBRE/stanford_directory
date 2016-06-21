@@ -11,7 +11,7 @@
  */
 function stanford_directory_help($path, $arg) {
   switch ($path) {
-    // Main module help for the stanford_directory module
+    // Main module help for the stanford_directory module.
     case 'stanford_directory':
       return '<p>' . t('Please see the !config', array('!config' => l("cofiguration page", "admin/config/stanford/directory"))) . '</p>';
   }
@@ -36,7 +36,7 @@ function stanford_directory_menu() {
  */
 function stanford_directory_permission() {
   return array(
-    'administer stanford directory' =>  array(
+    'administer stanford directory' => array(
       'title' => t('Administer Stanford Directory'),
       'description' => t('Administer configuration settings for the Stanford Directory module.'),
     ),
