@@ -6,7 +6,7 @@
 /**
  * Implements hook_install().
  */
-function stanford_module_install() {
+function stanford_directory_install() {
   // Populate the default {node_access} record.
   /*
    *db_insert('node_access')
@@ -26,7 +26,7 @@ function stanford_module_install() {
 /**
  * Implements hook_enable().
  */
-function stanford_module_enable() {
+function stanford_directory_enable() {
   /*
    *mymodule_cache_rebuild();
    */
@@ -36,7 +36,7 @@ function stanford_module_enable() {
 /**
  * Implements hook_disable().
  */
-function stanford_module_disable() {
+function stanford_directory_disable() {
   /*
    *mymodule_cache_rebuild();
    */
@@ -46,7 +46,7 @@ function stanford_module_disable() {
 /**
  * Implements hook_uninstall().
  */
-function stanford_module_uninstall() {
+function stanford_directory_uninstall() {
   /*
    *variable_del('upload_file_types');
    */

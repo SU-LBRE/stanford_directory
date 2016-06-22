@@ -20,7 +20,7 @@ to have enabled to use the directory fields. They will show up in a vertical
 tab on the content type. Disabling a field will remove the fields from the
 content type.
 
-Please fill out the two vocuabularies included in this module some terms.
+Please fill out the two vocuabularies included in this module with some terms.
 
 Troubleshooting
 ---
