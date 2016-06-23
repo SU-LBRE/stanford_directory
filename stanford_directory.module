@@ -1,6 +1,12 @@
 <?php
 /**
  * @file
+ * Code for the Stanford Directory feature.
+ */
+
+include_once 'stanford_directory.features.inc';
+/**
+ * @file
  * File description
  *
  * Long description
