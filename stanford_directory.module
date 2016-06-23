@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * File description
- *
- * Long description
+ * Code for the Stanford Directory feature.
  */
+
+include_once 'stanford_directory.features.inc';
 
 /**
  * Implements hook_help().
